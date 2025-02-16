@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=4 uid="uid://c8k2n02s5jlqp"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_hvgpx"]
+[ext_resource type="TileSet" uid="uid://dsqmk4k21mstl" path="res://TrapTileset.tres" id="2_rdde5"]
+[ext_resource type="Script" path="res://player.gd" id="2_rdilx"]
+[ext_resource type="Texture2D" uid="uid://mkyq5qufwuf7" path="res://Temp player.png" id="3_k7jsg"]
+[ext_resource type="TileSet" uid="uid://dy8t85kpxlagi" path="res://MainTileset.tres" id="3_vl3k6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wny2"]
+radius = 8.0
+height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6ytq"]
+
+[sub_resource type="Animation" id="Animation_p42ua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrapLayer:collision_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrapLayer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3yaqc"]
+resource_name = "trap_floor_disappear"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrapLayer:collision_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TrapLayer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28mt7"]
+_data = {
+"RESET": SubResource("Animation_p42ua"),
+"trap_floor_disappear": SubResource("Animation_3yaqc")
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_hvgpx")
+
+[node name="MainLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAA0AAQAAAAAAAAABAA0AAQAAAAAAAAACAA0AAQAAAAAAAAADAA0AAQAAAAAAAAAEAA0AAQAAAAAAAAAFAA0AAQAAAAAAAAAGAA0AAQAAAAAAAAAHAA0AAQAAAAAAAAAIAA0AAQAAAAAAAAAJAA0AAQAAAAAAAAAKAA0AAQAAAAAAAAALAA0AAQAAAAAAAAA=")
+tile_set = ExtResource("2_rdde5")
+
+[node name="TrapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAMAA0AAQAAAAAAAAANAA0AAQAAAAAAAAAOAA0AAQAAAAAAAAAPAA0AAQAAAAAAAAAMAAwAAQAAAAAAAAAMAAsAAQAAAAAAAAA=")
+tile_set = ExtResource("3_vl3k6")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(188, 122)
+script = ExtResource("2_rdilx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("3_k7jsg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_1wny2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(362, 401)
+scale = Vector2(2.38636, 1.50302)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l6ytq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_28mt7")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="trap_floor_entered"]
