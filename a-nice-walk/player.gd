@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var speed = 300.0
 const JUMP_VELOCITY = -400.0
-
+const MAX_SPEED = 600
+const  ACC = 75
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -18,8 +19,9 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x,direction * MAX_SPEED,ACC) # this took an embrassing amount of time
+		print(velocity.x) 			
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, 10)
 
 	move_and_slide()
