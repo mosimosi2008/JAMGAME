@@ -12,6 +12,8 @@ const MAX_COYOTE_TIME = 0.1
 var coyote_time = 0
 var actionable = true
 
+@onready var player_anim = $PlayerAnim
+
 func _physics_process(delta: float) -> void:
 	if actionable:
 		# Add the gravity.
@@ -38,3 +40,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, ACC)
 
 		move_and_slide()
+
+func screen_shake():
+	player_anim.play("screen_shake")
+	

@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkrsdf01gkcvy"]
+
+[ext_resource type="Texture2D" uid="uid://jh5smyo5fh3y" path="res://icon.svg" id="1_puqiu"]
+
+[node name="SkillCheck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 48.0
+offset_right = 49.0
+offset_bottom = 71.0
+grow_horizontal = 2
+text = "SKILL CHECK"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.0
+offset_top = -224.0
+offset_right = 186.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press the keys as their icons appear on screen!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(156, 222)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(256, 222)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(156, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(257, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(279, 449)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(400, 449)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(335, 545)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(414, 222)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(514, 222)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(414, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(515, 330)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_puqiu")

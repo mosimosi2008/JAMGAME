@@ -21,8 +21,13 @@ func kill_zone_entered(body: Node2D) -> void:
 		kill_player()
 		
 func kill_player():
-	player.actionable = true
-	get_tree().paused = true
+	player.actionable = false
+	
+	
 
 func mine_connect():
 	player.actionable = false
+
+func mine_kill():
+	player.player_anim.play("screen_shake")
+	kill_player()
