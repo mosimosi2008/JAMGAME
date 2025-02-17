@@ -14,3 +14,15 @@ func trap_floor_entered(body: Node2D) -> void:
 		
 		
 	
+
+
+func kill_zone_entered(body: Node2D) -> void:
+	if body == player:
+		kill_player()
+		
+func kill_player():
+	player.actionable = true
+	get_tree().paused = true
+
+func mine_connect():
+	player.actionable = false
