@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://c8k2n02s5jlqp"]
+[gd_scene load_steps=12 format=4 uid="uid://c8k2n02s5jlqp"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_hvgpx"]
 [ext_resource type="TileSet" uid="uid://dsqmk4k21mstl" path="res://TrapTileset.tres" id="2_rdde5"]
 [ext_resource type="Script" path="res://player.gd" id="2_rdilx"]
 [ext_resource type="Texture2D" uid="uid://mkyq5qufwuf7" path="res://Temp player.png" id="3_k7jsg"]
 [ext_resource type="TileSet" uid="uid://dy8t85kpxlagi" path="res://MainTileset.tres" id="3_vl3k6"]
+[ext_resource type="PackedScene" uid="uid://b25wlxnloorka" path="res://killzone.tscn" id="6_7nkmn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1wny2"]
 radius = 8.0
@@ -85,7 +86,8 @@ tile_map_data = PackedByteArray("AAAMAA0AAQAAAAAAAAANAA0AAQAAAAAAAAAOAA0AAQAAAAA
 tile_set = ExtResource("3_vl3k6")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-position = Vector2(188, 122)
+position = Vector2(50, 396)
+collision_mask = 3
 script = ExtResource("2_rdilx")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -93,6 +95,12 @@ texture = ExtResource("3_k7jsg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_1wny2")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(16, 0)
+zoom = Vector2(2, 2)
+limit_left = 1
+limit_bottom = 512
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(362, 401)
@@ -105,5 +113,8 @@ shape = SubResource("RectangleShape2D_l6ytq")
 libraries = {
 "": SubResource("AnimationLibrary_28mt7")
 }
+
+[node name="KILLZONE" parent="." instance=ExtResource("6_7nkmn")]
+position = Vector2(63, 521)
 
 [connection signal="body_entered" from="Area2D" to="." method="trap_floor_entered"]
