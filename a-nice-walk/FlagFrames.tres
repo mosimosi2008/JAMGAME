@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://16ricqfiv2p6"]
+
+[ext_resource type="Texture2D" uid="uid://dgcmmwemqjg2r" path="res://sprites/Anticheckpoint 1.png" id="1_rjriy"]
+[ext_resource type="Texture2D" uid="uid://cr1jjslq8jt7t" path="res://sprites/Anticheckpoint 2.png" id="2_xd7cj"]
+[ext_resource type="Texture2D" uid="uid://6rdpbxd8tjg3" path="res://sprites/Anticheckpoint 3.png" id="3_7q2du"]
+[ext_resource type="Texture2D" uid="uid://nefidkp16r0d" path="res://sprites/Anticheckpoint 4.png" id="4_b83dc"]
+[ext_resource type="Texture2D" uid="uid://gx3ssjcnwb04" path="res://sprites/Checkpoint 1.png" id="5_a1xs3"]
+[ext_resource type="Texture2D" uid="uid://b8bfb3b1xvxiw" path="res://sprites/Checkpoint 2.png" id="6_ox1cb"]
+[ext_resource type="Texture2D" uid="uid://d1slshg6tvmja" path="res://sprites/Checkpoint 3.png" id="7_b0tfr"]
+[ext_resource type="Texture2D" uid="uid://brwtyj72iqcja" path="res://sprites/Checkpoint 4.png" id="8_nhvea"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rjriy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xd7cj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7q2du")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b83dc")
+}],
+"loop": true,
+"name": &"fake",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a1xs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ox1cb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b0tfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nhvea")
+}],
+"loop": true,
+"name": &"real",
+"speed": 12.0
+}]

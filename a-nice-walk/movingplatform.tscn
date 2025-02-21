@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://mvhlt005pewr"]
 
 [ext_resource type="Script" path="res://moving_platform.gd" id="1_jyfcd"]
-[ext_resource type="Texture2D" uid="uid://ds7mtpsyjvhkd" path="res://Temp tileset.png" id="2_ptaix"]
+[ext_resource type="Texture2D" uid="uid://ds7mtpsyjvhkd" path="res://sprites/Temp tileset.png" id="2_ptaix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sbcd"]
 size = Vector2(48, 32)

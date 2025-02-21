@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bl0770tnhfalv"]
 
 [ext_resource type="Script" path="res://piano.gd" id="1_w4ku7"]
-[ext_resource type="Texture2D" uid="uid://jh5smyo5fh3y" path="res://icon.svg" id="2_cv2eu"]
+[ext_resource type="Texture2D" uid="uid://jh5smyo5fh3y" path="res://sprites/icon.svg" id="2_cv2eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1sqpk"]
 size = Vector2(113, 110)

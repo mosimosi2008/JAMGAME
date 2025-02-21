@@ -8,7 +8,7 @@ const FALL_SPEED = 500
 const JUMP_VELOCITY = -800.0
 var MAX_SPEED = 300
 const  ACC = 75
-const MAX_COYOTE_TIME = 0.1
+const MAX_COYOTE_TIME = 0.05
 var coyote_time = 0
 var actionable = true
 var temp_velocity: Vector2
@@ -58,4 +58,13 @@ func screen_shake():
 
 func spring(body: Node2D) -> void:
 	if body == self:
-		velocity.y = -10000
+		$"../Spring/SpringSprite".play("launch")
+
+		temp_velocity.y = -10000
+
+
+func peel_slip(body: Node2D) -> void:
+	if body == self:
+		actionable = false
+		$"../BananaPeel/AnimatedSprite2D".frame = 1
+		player_anim.play("slip")
